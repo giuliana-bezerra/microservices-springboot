@@ -15,6 +15,7 @@
 	<description>Payroll microservice in human resource system.</description>
 	<properties>
 		<java.version>11</java.version>
+		<spring-cloud.version>Hoxton.SR9</spring-cloud.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -40,6 +41,10 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 	</dependencies>
 
