@@ -1,10 +1,14 @@
 package com.microservices.hrauth.entities;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-public class User implements Serializable {
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+public class User implements UserDetails, Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
@@ -87,6 +91,36 @@ public class User implements Serializable {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
+		return true;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return roles;
+	}
+
+	@Override
+	public String getUsername() {
+		return email;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
 		return true;
 	}
 
