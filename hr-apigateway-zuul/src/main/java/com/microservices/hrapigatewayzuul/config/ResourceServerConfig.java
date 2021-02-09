@@ -17,7 +17,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
 	private static final String[] PUBLIC = { "/hr-auth/oauth/token" };
 	private static final String[] OPERATOR_URLS = { "/hr-worker/**" };
-	private static final String[] ADMIN_URLS = { "/hr-payroll/**", "/hr-user/**" };
+	private static final String[] ADMIN_URLS = { "/hr-payroll/**", "/hr-user/**", "/actuator/**",
+			"/hr-worker/actuator/**", "/hr-auth/actuator/**" };
 
 	/** Enable the project to read tokens JWT. */
 	@Override
