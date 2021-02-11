@@ -24,8 +24,8 @@ import com.microservices.hrworker.repositories.WorkerRepository;
 public class WorkerResource {
 	private static final Logger logger = LoggerFactory.getLogger(WorkerResource.class);
 	
-	@Value("${test.config}")
-	private String testConfig;
+//	@Value("${test.config}")
+//	private String testConfig;
 	
 	@Autowired
 	private Environment env;
@@ -34,11 +34,11 @@ public class WorkerResource {
 	private WorkerRepository repository;
 
 	/** Testing config server */
-	@GetMapping(value = "/config")
-	public ResponseEntity<Void> getConfig() {
-		logger.info("CONFIG = " + testConfig);
-		return ResponseEntity.noContent().build();
-	}
+//	@GetMapping(value = "/config")
+//	public ResponseEntity<Void> getConfig() {
+//		logger.info("CONFIG = " + testConfig);
+//		return ResponseEntity.noContent().build();
+//	}
 	
 	@GetMapping
 	public ResponseEntity<List<Worker>> findAll() {
