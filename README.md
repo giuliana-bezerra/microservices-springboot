@@ -8,10 +8,8 @@ docker network create hr-net
 ## Testando perfil dev com Postgresql no Docker
 ```
 docker pull postgres:12-alpine
-
-docker run --name hr-user-pg12 --network hr-net -e POSTGRES_PASSWORD=1234567 -e POSTGRES_DB=db_hr_user postgres:12-alpine &
-
-docker run --name hr-worker-pg12 --network hr-net -e POSTGRES_PASSWORD=1234567 -e POSTGRES_DB=db_hr_worker postgres:12-alpine &
+docker run -p 5433:5432 --name hr-user-pg12 --network hr-net -e POSTGRES_PASSWORD=1234567 -e POSTGRES_DB=db_hr_user postgres:12-alpine &
+docker run -p 5432:5432 --name hr-worker-pg12 --network hr-net -e POSTGRES_PASSWORD=1234567 -e POSTGRES_DB=db_hr_worker postgres:12-alpine &
 ```
 
 ## hr-config-server
@@ -114,6 +112,8 @@ cd hr-apigateway-zuul
 docker build -t hr-api-gateway-zuul:v1 .
 docker run -p 8765:8765 --name hr-api-gateway-zuul --network hr-net hr-api-gateway-zuul:v1 &
 ```
+
+No final é necessário executar os scripts dos serviços hr-user e hr-worker para inicializar a base de dados.
 
 ## Alguns comandos Docker
 Criar uma rede Docker
