@@ -2,7 +2,6 @@ package com.microservices.hrpayroll.resources;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +25,7 @@ public class PaymentResource {
 	}
 
 	public ResponseEntity<Payment> getPaymentAlternative(Long workerId, Integer days) {
-		Payment payment = new Payment("Brann", 400.0, days);
+		Payment payment = new Payment("FallbackName", 400.0, days);
 		return ResponseEntity.ok(payment);
 	}
 }
